@@ -60,11 +60,11 @@ def run_authorization():
     password_label.pack()
 
     # поле ввода пароля
-    password_entry = Entry(window, bg='#fcf', fg='#444', font=font_entry)
+    password_entry = Entry(window, bg='#fff', fg='#444', font=font_entry)
     password_entry.pack()
 
     # кнопка отправки формы
-    send_btn = Button(window, text='Войти', bg="#C0C0C0", bd="1", width="7", font=label_font, command=clicked)
+    send_btn = Button(window, text='Войти', bg="#C0C0C0", bd="1", width="7", activebackground="#DCDCDC", font=label_font, command=clicked)
     send_btn.pack(**base_padding)
 
     # запускаем главный цикл окна
