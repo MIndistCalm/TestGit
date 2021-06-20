@@ -1,4 +1,5 @@
 from tkinter import *
+from AuthorizationWindow import run_authorization
 import pypyodbc
 
 conn = pypyodbc.connect(
@@ -10,5 +11,5 @@ for row in cursor.fetchall():
     print(row)
 
 root = Tk()
-
+run_authorization()
 root.mainloop()
