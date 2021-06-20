@@ -10,8 +10,8 @@ cursor.execute('select * from Смета')
 for row in cursor.fetchall():
     print(row)
 
-
-if run_authorization():
-    root = Tk()
-    root.attributes('-fullscreen', True)
-    root.mainloop()
+run_authorization()
+# if run_authorization():
+    # root = Tk()
+    # root.attributes('-fullscreen', True)
+    # root.mainloop()
