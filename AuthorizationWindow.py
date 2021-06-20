@@ -1,8 +1,7 @@
 # импортируем библиотеку tkinter всю сразу
 import tkinter
-from tkinter import *
 from tkinter import messagebox
-
+from MainActivityWindow import *
 
 def run_authorization():
 
@@ -37,9 +36,9 @@ def run_authorization():
         if username == "1" and password == "1":
             # выводим в диалоговое окно введенные пользователем данные
             messagebox.showinfo('Авторизация', 'Вы успешно вошли в систему')
-            window.quit()
-        else:
-            return False
+            window.destroy()
+            c = Main_activity_window()
+            c.__init__()
 
     # заголовок формы: настроены шрифт (font), отцентрирован (justify), добавлены отступы для заголовка
     # для всех остальных виджетов настройки делаются также
@@ -69,4 +68,3 @@ def run_authorization():
 
     # запускаем главный цикл окна
     window.mainloop()
-    return True
