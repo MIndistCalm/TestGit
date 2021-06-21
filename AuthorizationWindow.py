@@ -38,7 +38,7 @@ def run_authorization():
             messagebox.showinfo('Авторизация', 'Вы успешно вошли в систему')
             window.destroy()
             c = Main_activity_window()
-            c.__init__()
+            # c.__init__()
 
     # заголовок формы: настроены шрифт (font), отцентрирован (justify), добавлены отступы для заголовка
     # для всех остальных виджетов настройки делаются также
