@@ -6,7 +6,6 @@ db = SqliteDatabase('data.sqlite')
 class BaseModel(Model):
     id = PrimaryKeyField(unque=True)
 
-
     class Meta:
         database = db
         order_by = 'id'
@@ -18,20 +17,18 @@ class Promotion_and_discount(BaseModel):
     new_price = FloatField()
 
     class Meta:
-        db_table = 'Promotions_and_discounts'
+        db_table = 'promotions_and_discounts'
 
 
 class Post(BaseModel):
     post_name = TextField()
     Number_of_people_in_the_current_position = FloatField()
 
-
     class Meta:
-        db_table = 'Posts'
+        db_table = 'posts'
 
 
-
-class Clients(BaseModel):
+class Client(BaseModel):
     last_name = TextField()
     first_name = TextField()
     third_name = TextField()
@@ -40,44 +37,97 @@ class Clients(BaseModel):
     phone = TextField()
     mail = TextField()
 
-
     class Meta:
-        db_table = 'Posts'
+        db_table = 'clients'
 
 
 class Menu(BaseModel):
-    pass
+    product_name = TextField()
+    price = FloatField()
+    volume = FloatField()
+    composition = TextField()
+
+    class Meta:
+        db_table = 'menus'
 
 
-class Suppliers(BaseModel):
-    pass
+class Supplier(BaseModel):
+    organization_name = TextField()
+    product_name = TextField()
+    quantity_of_goods = TextField()
+
+    class Meta:
+        db_table = 'suppliers'
 
 
 class Furniture_registry(BaseModel):
-    pass
+    name = TextField()
+    color = TextField()
+    manufacturer = TextField()
+
+    class Meta:
+        db_table = 'furniture_registrys'
 
 
 class Equipment_registry(BaseModel):
-    pass
+    name = TextField()
+    equipment_code = TextField()
+    brand = TextField()
+    manufacturer = TextField()
+
+    class Meta:
+        db_table = 'equipment_registrys'
 
 
 class Advertisement(BaseModel):
-    pass
+    ad_type = TextField()
+    price = TextField()
+
+    class Meta:
+        db_table = 'advertisements'
 
 
 class Estimate(BaseModel):
-    pass
+    product_name = TextField()
+
+    class Meta:
+        db_table = 'estimates'
 
 
 class Staff(BaseModel):
-    pass
+    last_name = TextField()
+    first_name = TextField()
+    third_name = TextField()
+    date_of_birth = TextField()
+    address = TextField()
+    phone = TextField()
+    mail = TextField()
+    staff_code = TextField()
+
+    class Meta:
+        db_table = 'staffs'
 
 
 class Trade_turnover(BaseModel):
-    pass
+    costs = FloatField()
+    revenue = FloatField()
+    profit = FloatField()
+    product_code = FloatField()
+
+    class Meta:
+        db_table = 'trade_turnovers'
 
 
 class Branch(BaseModel):
-    pass
+    promotions_and_discounts_code = FloatField()
+    customer_code = FloatField()
+    menu_code = FloatField()
+    supplier_code = FloatField()
+    furniture_register_code = FloatField()
+    equipment_register_code = FloatField()
+    advertising_code = FloatField()
+    employee_code = FloatField()
+    turnover_code = FloatField()
 
-
+    class Meta:
+        db_table = 'branchs'
