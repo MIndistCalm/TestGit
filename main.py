@@ -22,9 +22,9 @@ class LoginPage(Screen):
             self.manager.current = "error"
 
 
-
 class ErrorPage(Screen):
     pass
+
 
 class UserPage(Screen):
     pass
@@ -44,4 +44,4 @@ class LoginApp(App):
 
 if __name__ == '__main__':
     # LoginApp().run()
-    run()
+    run(1,2,3,"a","af")

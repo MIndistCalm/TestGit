@@ -4,7 +4,7 @@ db = SqliteDatabase('data.sqlite')
 
 
 class BaseModel(Model):
-    id = PrimaryKeyField(unque=True)
+    id = PrimaryKeyField(unique=True)
 
     class Meta:
         database = db
@@ -22,7 +22,7 @@ class Promotion_and_discount(BaseModel):
 
 class Post(BaseModel):
     post_name = TextField()
-    Number_of_people_in_the_current_position = FloatField()
+    number_of_people_in_the_current_position = IntegerField()
 
     class Meta:
         db_table = 'posts'
