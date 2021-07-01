@@ -18,7 +18,7 @@ def add_fields(table, *argss):
         data = tuple(argss)
         fields = []
         for f in get_fields(table):
-            fields.append(str(name) + "." + str(f))# тут ошибка надо сделать из строки 'Post.name_post' -> Post.name_post
+            fields.append(str(name) + "." + str(f))#  тут ошибка надо сделать из строки 'Post.name_post' -> Post.name_post
         name.insert_many(data, fields).execute()
 
 
