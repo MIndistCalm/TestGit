@@ -11,6 +11,7 @@ class BaseModel(Model):
         order_by = 'id'
 
 
+
 class Promotion_and_discount(BaseModel):
     product_name = TextField()
     old_price = FloatField()
