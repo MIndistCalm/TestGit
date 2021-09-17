@@ -9,15 +9,17 @@ Config.set('graphics', 'height', '480')
 Config.set('graphics', 'width', '320')
 
 from kivy.core.window import Window
-
+from User import *
 
 class LoginPage(Screen):
     def verify_credentials(self):
         if self.ids["login"].text == "" and self.ids["passw"].text == "":
-            Window.size = (1366, 768)
-            Window.fullscreen = 'auto'
+            Window.size = (Window.width, Window.height)
+            # Window.fullscreen = 'auto'
             Window.borderless = '0'
             self.manager.current = "user"
+            c = User()
+            c.add()
         else:
             self.manager.current = "error"
 
@@ -44,4 +46,4 @@ class LoginApp(App):
 
 if __name__ == '__main__':
     # LoginApp().run()
-    run(1,2,3,"a","af")
+    run()
