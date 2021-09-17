@@ -1,17 +1,49 @@
-from tkinter import *
-from AuthorizationWindow import run_authorization
-import pypyodbc
+from kivy.app import App
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.lang.builder import Builder
+from DataBase import *
+from kivy.config import Config
 
-conn = pypyodbc.connect(
-    r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\Users\suxin\OneDrive\Documents\CafeDataBase.accdb;')
-cursor = conn.cursor()
-cursor.execute('select * from Смета')
+Config.set('graphics', 'resizable', '0')
+Config.set('graphics', 'height', '480')
+Config.set('graphics', 'width', '320')
 
-for row in cursor.fetchall():
-    print(row)
+from kivy.core.window import Window
+from User import *
 
-run_authorization()
-# if run_authorization():
-    # root = Tk()
-    # root.attributes('-fullscreen', True)
-    # root.mainloop()
+class LoginPage(Screen):
+    def verify_credentials(self):
+        if self.ids["login"].text == "" and self.ids["passw"].text == "":
+            Window.size = (Window.width, Window.height)
+            # Window.fullscreen = 'auto'
+            Window.borderless = '0'
+            self.manager.current = "user"
+            c = User()
+            c.add()
+        else:
+            self.manager.current = "error"
+
+
+class ErrorPage(Screen):
+    pass
+
+
+class UserPage(Screen):
+    pass
+
+
+class ScreenManagement(ScreenManager):
+    pass
+
+
+kv_file = Builder.load_file('login.kv')
+
+
+class LoginApp(App):
+    def builder(self):
+        return kv_file
+
+
+if __name__ == '__main__':
+    # LoginApp().run()
+    run()

@@ -1,0 +1,77 @@
+ScreenManagement:
+    LoginPage:
+    UserPage:
+    ErrorPage:
+<LoginPage>:
+    name: "login_page"
+    AnchorLayout:
+        color: [.13, .15, .16, 1]
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (.65, .65)
+            spacing: 5
+            Label:
+                text: "Авторизация"
+                font_size: 24
+
+            AnchorLayout:
+                anchor_x: "left"
+                anchor_y: "bottom"
+                Label:
+                    size_hint: (None, .5)
+                    size: (47, .5)
+                    text: "Логин:"
+            TextInput:
+                id: login
+                #size_hint: (.25, .25)
+                multiline: False
+                background_color: [.19, .22, .25, 1]
+                foreground_color: [1, 1, 1, 1]
+                cursor_color: [1, 1, 1, 1]
+                font_size: self.height - 15
+            AnchorLayout:
+                anchor_x: "left"
+                anchor_y: "bottom"
+                Label:
+                    size_hint: (None, .5)
+                    size: (55, .5)
+                    text: "Пароль:"
+            TextInput:
+                id: passw
+                password: True # hide password
+                multiline: False
+                foreground_color: [1, 1, 1, 1]
+                cursor_color: [1, 1, 1, 1]
+                background_color: [.19, .22, .25, 1]
+                font_size: self.height - 15
+                cancel_selection:
+            AnchorLayout:
+                anchor_x: "center"
+                anchor_y: "bottom"
+                padding: [0, 20, 0, 0]
+                Button:
+                    text: "Войти"
+                    size_hint: (1, None)
+                    size: (1, 40)
+                    foreground_color: [1, 1, 1, 1]
+                    background_color: [1, .6, 0, 1]
+                    on_release: root.verify_credentials()
+
+
+<UserPage>:
+    name: "user"
+
+
+
+
+    #Button:
+    #    text: "Назад"
+    #    on_release: app.root.current = "login_page"
+
+
+
+<ErrorPage>:
+    name: "error"
+    Button:
+        text: "Логин или пароль введены некорректно"
+        on_release: app.root.current = "login_page"
